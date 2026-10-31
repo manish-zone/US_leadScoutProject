@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --water-bg: #f8fafc;
+    --water-card-bg: #ffffff;
+    --water-border: #bae6fd;
+    --water-shadow: rgba(14, 165, 233, 0.12);
+  }
+
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-image: 
+      radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 85% 15%, rgba(99, 102, 241, 0.06) 0%, transparent 40%),
+      radial-gradient(circle at 50% 80%, rgba(14, 165, 233, 0.07) 0%, transparent 50%),
+      linear-gradient(180deg, #ffffff 0%, #f8fafc 40%, #f1f5f9 100%);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ================= ULTRA-PERFORMANT 3D WATER GLASS SYSTEM (60FPS HARDWARE ACCELERATED) ================= */
+
+/* 1. Main Water Glass Slabs (Crystal Clarity + High Contrast, Zero Lag) */
+.glass-3d-slab {
+  background: rgba(255, 255, 255, 0.97);
+  border: 1.5px solid #bae6fd;
+  border-top: 2.5px solid #ffffff;
+  border-bottom: 2px solid #7dd3fc;
+  box-shadow: 
+    0 12px 30px -6px rgba(14, 165, 233, 0.12),
+    0 4px 10px -2px rgba(15, 23, 42, 0.04),
+    inset 0 1.5px 1px 0 #ffffff,
+    inset 0 -1.5px 2px 0 rgba(186, 230, 253, 0.3);
+  contain: paint;
+}
+
+/* 2. Interactive Water Glass Cards (Sharp Edge Contrast + High Depth) */
+.glass-3d-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-top: 2px solid #ffffff;
+  border-bottom: 2px solid #cbd5e1;
+  box-shadow: 
+    0 4px 16px -2px rgba(15, 23, 42, 0.06),
+    0 2px 6px -1px rgba(14, 165, 233, 0.06),
+    inset 0 1px 1px 0 #ffffff;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.glass-3d-card:hover {
+  transform: translateY(-3px);
+  border-color: #38bdf8;
+  border-bottom-color: #0284c7;
+  box-shadow: 
+    0 14px 28px -4px rgba(14, 165, 233, 0.18),
+    0 4px 10px -2px rgba(15, 23, 42, 0.08),
+    inset 0 1.5px 2px 0 #ffffff;
+}
+
+/* 3. Tactile 3D Buttons */
+.glass-3d-btn {
+  background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%);
+  border: 1.5px solid #bae6fd;
+  border-top: 2px solid #ffffff;
+  border-bottom: 2px solid #38bdf8;
+  box-shadow: 
+    0 3px 8px -1px rgba(14, 165, 233, 0.15),
+    inset 0 1.5px 1px 0 #ffffff;
+  color: #0f172a;
+  font-weight: 700;
+  transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
+}
+
+.glass-3d-btn:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #e0f2fe 100%);
+  border-color: #0284c7;
+  box-shadow: 
+    0 6px 14px -2px rgba(14, 165, 233, 0.25),
+    inset 0 1.5px 1px 0 #ffffff;
+  color: #0284c7;
+}
+
+.glass-3d-btn:active {
+  transform: translateY(1px);
+  box-shadow: 
+    0 1px 3px rgba(14, 165, 233, 0.2),
+    inset 0 1px 2px rgba(186, 230, 253, 0.6);
+}
+
+/* 4. Active Ocean Blue Pill */
+.glass-3d-pill-active {
+  background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
+  border: 1.5px solid #0284c7;
+  border-top: 2px solid #38bdf8;
+  border-bottom: 2px solid #075985;
+  color: #ffffff !important;
+  box-shadow: 
+    0 4px 12px -1px rgba(2, 132, 199, 0.4),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.5);
+  font-weight: 800;
+}
+
+/* 5. Crisp Sunken Inputs (High Visibility, Zero Lag) */
+.glass-3d-input {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-top: 2px solid #94a3b8;
+  color: #0f172a;
+  box-shadow: inset 0 2px 3px rgba(15, 23, 42, 0.05);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.glass-3d-input:focus {
+  border-color: #0284c7;
+  border-top-color: #0284c7;
+  outline: none;
+  box-shadow: 
+    0 0 0 3px rgba(14, 165, 233, 0.25),
+    inset 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+/* Custom Datetime Input Refinements */
+input[type="datetime-local"] {
+  min-width: 215px;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity 0.15s ease;
+  margin-left: 2px;
+  padding: 0;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Lightweight Radar Animation (GPU only) */
+@keyframes radarSweepLight {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-radar-3d-sweep {
+  animation: radarSweepLight 4s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.animate-radar-beam-spin {
+  animation: radarSweepLight 2.5s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 9999px;
+  border: 2px solid #f1f5f9;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
